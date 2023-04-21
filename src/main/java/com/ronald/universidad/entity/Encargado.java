@@ -23,7 +23,7 @@ public class Encargado extends Persona {
 	private String estudios;
 
 	public Encargado(Long id, String nombre, String apellido, String Direccion, String Telefono, String email,
-			String DUI, Integer estado) {
+			String DUI, String estado) {
 		super(id, nombre, apellido, Direccion, Telefono, email, DUI, estado);
 		// TODO Auto-generated constructor stub
 	}

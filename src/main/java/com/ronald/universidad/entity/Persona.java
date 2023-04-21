@@ -36,11 +36,11 @@ public class Persona {
 	@Column( unique = true)
 	private String email;
 	
-	@Length(max = 10)
+	@Length(max = 12)
 	@Column( unique = true)
 	private String DUI;
 	
-	private Integer estado;
+	private String estado;
 
 	
 	

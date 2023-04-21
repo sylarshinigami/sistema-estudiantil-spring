@@ -2,13 +2,14 @@ package com.ronald.universidad.entity;
 
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -28,7 +29,7 @@ public class Materia {
 	
 	private String nombre;
 	
-	private int estado;
+	private String estado;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	private Profesor profesor;
@@ -36,9 +37,11 @@ public class Materia {
 	@ManyToOne(fetch = FetchType.LAZY)
 	private Carrera carrera;
 	
-	@ManyToMany( mappedBy = "materias")
-	private List<Alumno> alumnos;
+	@OneToMany( mappedBy = "materia", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<AlumnoMateria> alumnoMaterias;
 	
 	
+	@ManyToOne(fetch = FetchType.LAZY)
+	private Horario horario;
 	
 }

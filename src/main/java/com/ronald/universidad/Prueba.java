@@ -32,7 +32,7 @@ public class Prueba {
 		en.setDireccion("San esteban Catarina");
 		en.setDUI("00278484*6");
 		en.setEmail("ronald@mail.com");
-		en.setEstado(1);
+//		en.setEstado(1);
 		en.setEstudios("Universidad");
 		en.setParentesco("Padre");
 		en.setTelefono("77512313");
@@ -50,7 +50,7 @@ public class Prueba {
 		en.setDireccion("San esteban Catarina");
 		en.setDUI("00278484*8");
 		en.setEmail("ronaldarquimides@mail.com");
-		en.setEstado(1);
+//		en.setEstado(1);
 		en.setEstudios("Universidad");
 		en.setParentesco("Padre");
 		en.setTelefono("77512313");
