@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="layouts/layout :: head">
+
+  </head>
+  <body>
+  <header th:replace="layouts/layout :: header "></header>
+
+
+    <main>
+      <a th:href="@{/carrera/form}">Ingresar Carrera</a>
+      <a th:href="@{/materia/form}">Ingresar Materia</a>
+      <a th:href="@{/profesor/form}">Ingresar profesor</a>
+      <a th:href="@{/alumno/form}">Ingresar Alumno</a>
+    </main>
+
+  <footer th:replace="layouts/layout :: footer "></footer>
+  </body>
+</html>

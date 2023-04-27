@@ -26,7 +26,7 @@ import lombok.NoArgsConstructor;
 public class Carrera {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
 	private String nombre;

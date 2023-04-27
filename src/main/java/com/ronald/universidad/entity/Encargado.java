@@ -1,9 +1,12 @@
 package com.ronald.universidad.entity;
 
+import java.util.List;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -23,7 +26,7 @@ public class Encargado extends Persona {
 	private String estudios;
 
 	public Encargado(Long id, String nombre, String apellido, String Direccion, String Telefono, String email,
-			String DUI, String estado) {
+			String DUI, boolean estado) {
 		super(id, nombre, apellido, Direccion, Telefono, email, DUI, estado);
 		// TODO Auto-generated constructor stub
 	}
@@ -34,6 +37,7 @@ public class Encargado extends Persona {
 				+ "]";
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	private Alumno alumno;
+	@OneToMany(mappedBy = "encargado", fetch = FetchType.LAZY,
+			cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<Alumno> alumnos;
 }

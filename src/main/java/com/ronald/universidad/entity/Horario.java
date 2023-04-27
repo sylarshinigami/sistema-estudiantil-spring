@@ -1,6 +1,5 @@
 package com.ronald.universidad.entity;
 
-import java.sql.Time;
 import java.time.LocalTime;
 import java.util.List;
 
@@ -26,7 +25,7 @@ import lombok.NoArgsConstructor;
 public class Horario {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
 	@Column(name = "hora_inicio")

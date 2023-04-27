@@ -8,6 +8,7 @@ import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
@@ -20,46 +21,43 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Data
-@Table( name = "alumnos")
-@EqualsAndHashCode(callSuper=false)
+@Table(name = "alumnos")
+@EqualsAndHashCode(callSuper = false)
 @NoArgsConstructor
 @AllArgsConstructor
 public class Alumno extends Persona {
 
-	@Column( name = "fecha_nacimiento")
-	@Temporal(TemporalType.DATE)
-	private Date fechaNacimiento;
-	
-	
-	@Column( name = "fecha_ingreso")
-	@Temporal(TemporalType.DATE)
-	private Date fechaIngreso;
+    @Column(name = "fecha_nacimiento")
+    @Temporal(TemporalType.DATE)
+    private Date fechaNacimiento;
 
 
-	public Alumno(Long id, String nombre, String apellido, 
-			String Direccion, String Telefono, String email, String DUI,
-			String estado) {
-		super(id, nombre, apellido, Direccion, Telefono, email, DUI, estado);
-	}
-	
-	@OneToMany( mappedBy = "alumno", fetch = FetchType.LAZY,
-			cascade = CascadeType.ALL, orphanRemoval = true)
-	private List<Encargado> encargados = new ArrayList<>();
-	
-	
-	@OneToMany( mappedBy = "alumno", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<AlumnoMateria> alumnoMaterias = new ArrayList<>();
-   
-	
-	public void addEncargado(Encargado encargado) {
-		if(encargado != null)
-			encargados.add(encargado);
-	}
-	
-	
-	public void addAlumnoMateria(AlumnoMateria alumnoMateria) {
-		if(alumnoMateria != null) 
-			alumnoMaterias.add(alumnoMateria);
-	}
-	
+    @Column(name = "fecha_ingreso")
+    @Temporal(TemporalType.DATE)
+    private Date fechaIngreso;
+
+
+    public Alumno(Long id, String nombre, String apellido,
+                  String Direccion, String Telefono, String email, String DUI,
+                  boolean estado) {
+        super(id, nombre, apellido, Direccion, Telefono, email, DUI, estado);
+    }
+
+
+    @OneToMany(mappedBy = "alumno", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Notas> notas = new ArrayList<>();
+
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Carrera carrera;
+
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Encargado encargado;
+
+
+    public void addNota(Notas nota) {
+        if (notas != null)
+            notas.add(nota);
+    }
+
+
 }

@@ -12,20 +12,19 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @Entity
-@Table( name = "alumno_materia")
+@Table( name = "notas")
 @NoArgsConstructor 
-public class AlumnoMateria {
+public class Notas {
 
 	
 	@Id
 	@Column( name = "id_alumno_materia")
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
 	

@@ -24,12 +24,12 @@ public class Materia {
 
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
 	private String nombre;
 	
-	private String estado;
+	private boolean estado;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	private Profesor profesor;
@@ -38,7 +38,7 @@ public class Materia {
 	private Carrera carrera;
 	
 	@OneToMany( mappedBy = "materia", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<AlumnoMateria> alumnoMaterias;
+    private List<Notas> notas;
 	
 	
 	@ManyToOne(fetch = FetchType.LAZY)

@@ -1,9 +1,6 @@
 package com.ronald.universidad;
 
-import java.sql.Array;
-import java.sql.Time;
 import java.time.LocalTime;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
@@ -13,7 +10,7 @@ import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.stereotype.Service;
 
 import com.ronald.universidad.entity.Alumno;
-import com.ronald.universidad.entity.AlumnoMateria;
+import com.ronald.universidad.entity.Notas;
 import com.ronald.universidad.entity.Carrera;
 import com.ronald.universidad.entity.Horario;
 import com.ronald.universidad.entity.Materia;
@@ -49,34 +46,34 @@ public class InserccionDatos {
 
 	public void inicializar() {
 		insertarAlumno("Ronald", "Aguilar", new Date(), new Date(), "colonia nuevo calvario", "77512313",
-				"ronald@mail.com", "00278484-6", "ACTIVO");
+				"ronald@mail.com", "00278484-6", true);
 
 		insertarAlumno("Arquimides", "Navarrete", new Date(), new Date(), "San Esteban Catarina", "23627323",
-				"arquimides@mail.com", "00278484-7", "ACTIVO");
+				"arquimides@mail.com", "00278484-7", true);
 
 		insertarCarrera("Ingenieria de Sistemas informaticos", "ACTIVA", new Date(), "IS2023");
 		insertarCarrera("Profesorado en Matematicas", "ACTIVA", new Date(), "PM2023");
 		insertarCarrera("Licenciatura en Sociales", "ACTIVA", new Date(), "LS2023");
 
 		insertarProfesor("Jose", "Navarrete", 500.25, "San Vicente", "23937323", "jose@mail.com", "22278484-7",
-				"ACTIVO");
+				true);
 
 		insertarProfesor("Amadeo", "Navarrete", 700.25, "San Ildefonso", "23567323", "amadeo@mail.com", "22568484-7",
-				"ACTIVO");
+				true);
 		
 		insertarHorario(LocalTime.of(20, 0) , LocalTime.of(22, 0), Arrays.asList("MARTES","MIERCOLES"));
 		insertarHorario(LocalTime.of(12, 0) , LocalTime.of(14, 0), Arrays.asList("DOMINGO","LUNES"));
 
 		
-		insertarMateria("Lenguaje", "ACTIVA");
-		insertarMateria("Estadistica", "ACTIVA");
+		insertarMateria("Lenguaje", true);
+		insertarMateria("Estadistica", true);
 		
 		
 		insertarNota(new Date(), "I/2023", 8.3);
 	}
 
 	public void insertarAlumno(String nombre, String apellido, Date fechaNacimiento, Date fechaIngreso,
-			String direccion, String telefono, String email, String DUI, String estado) {
+			String direccion, String telefono, String email, String DUI, boolean estado) {
 
 		Alumno alumno = new Alumno();
 		alumno.setNombre(nombre);
@@ -103,7 +100,7 @@ public class InserccionDatos {
 	}
 
 	public void insertarProfesor(String nombre, String apellido, Double salario, String direccion, String telefono,
-			String email, String DUI, String estado) {
+			String email, String DUI, boolean estado) {
 		Profesor profesor = new Profesor();
 
 		profesor.setNombre(nombre);
@@ -128,7 +125,7 @@ public class InserccionDatos {
 		horarioRepository.save(horario);
 	}
 	
-	public void insertarMateria(String nombre, String estado) {
+	public void insertarMateria(String nombre, boolean estado) {
 		
 		Profesor profesor = profesorRepository.findById(1L).get();
 		Horario horario = horarioRepository.findById(1L).get();
@@ -152,15 +149,15 @@ public class InserccionDatos {
 		Alumno alumno = alumnoRepository.findById(1L).get();
 		Materia materia = materiaRepository.findById(1L).get();
 		
-		AlumnoMateria alumnoMateria = new AlumnoMateria();
-		alumnoMateria.setAlumno(alumno);
-		alumnoMateria.setMateria(materia);
-		alumnoMateria.setFechaRegistro(fechaRegistro);
-		alumnoMateria.setCiclo(ciclo);
-		alumnoMateria.setNotaFinal(notaFinal);
+		Notas notas = new Notas();
+		notas.setAlumno(alumno);
+		notas.setMateria(materia);
+		notas.setFechaRegistro(fechaRegistro);
+		notas.setCiclo(ciclo);
+		notas.setNotaFinal(notaFinal);
 		
 		
-		alumnoMateriaRepository.save(alumnoMateria);
+		alumnoMateriaRepository.save(notas);
 		
 		
 	}

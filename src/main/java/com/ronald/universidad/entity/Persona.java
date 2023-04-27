@@ -18,7 +18,7 @@ import lombok.NoArgsConstructor;
 public class Persona {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
 	@Length(max = 50)
@@ -40,7 +40,7 @@ public class Persona {
 	@Column( unique = true)
 	private String DUI;
 	
-	private String estado;
+	private boolean estado;
 
 	
 	
