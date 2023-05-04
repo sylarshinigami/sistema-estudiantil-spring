@@ -40,13 +40,13 @@
 							</thead>
 							<tbody>
 								<tr th:each="profesor: ${profesores}">
-									<td data-cell="id" ><a th:text="${profesor.id}"
+									<td th:data-cell="ID" ><a th:text="${profesor.id}"
 										class="btn btn-primary btn-xs"></a></td>
-									<td data-cell="nombre" th:text="${profesor.nombre}"></td>
-									<td data-cell="Apellido" th:text="${profesor.apellido}"></td>
-									<td data-cell="email" th:text="${profesor.email}"></td>
-									<td data-cell="DUI" th:text="${profesor.DUI}"></td>
-									<td data-cell="Salario" th:text="'$' + ${profesor.salario}"></td>
+									<td th:data-cell="#{text.nombre}" th:text="${profesor.nombre}"></td>
+									<td th:data-cell="#{text.apellido}" th:text="${profesor.apellido}"></td>
+									<td th:data-cell="#{text.email}" th:text="${profesor.email}"></td>
+									<td th:data-cell="#{text.dui}" th:text="${profesor.DUI}"></td>
+									<td th:data-cell="#{text.profesor.salario}" th:text="'$' + ${profesor.salario}"></td>
 								</tr>
 							</tbody>
 						</table>

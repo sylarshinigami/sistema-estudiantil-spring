@@ -45,20 +45,20 @@ public class InserccionDatos {
 	private AlumnoMateriaRepository alumnoMateriaRepository;
 
 	public void inicializar() {
-		insertarAlumno("Ronald", "Aguilar", new Date(), new Date(), "colonia nuevo calvario", "77512313",
+		insertarAlumno("Ronald", "Aguilar", new Date(), new Date(), "colonia nuevo calvario", "7751-2313",
 				"ronald@mail.com", "00278484-6", true);
 
-		insertarAlumno("Arquimides", "Navarrete", new Date(), new Date(), "San Esteban Catarina", "23627323",
+		insertarAlumno("Arquimides", "Navarrete", new Date(), new Date(), "San Esteban Catarina", "2362-7323",
 				"arquimides@mail.com", "00278484-7", true);
 
 		insertarCarrera("Ingenieria de Sistemas informaticos", "ACTIVA", new Date(), "IS2023");
 		insertarCarrera("Profesorado en Matematicas", "ACTIVA", new Date(), "PM2023");
 		insertarCarrera("Licenciatura en Sociales", "ACTIVA", new Date(), "LS2023");
 
-		insertarProfesor("Jose", "Navarrete", 500.25, "San Vicente", "23937323", "jose@mail.com", "22278484-7",
+		insertarProfesor("Jose", "Navarrete", 500.25, "San Vicente", "2393-7323", "jose@mail.com", "22278484-7",
 				true);
 
-		insertarProfesor("Amadeo", "Navarrete", 700.25, "San Ildefonso", "23567323", "amadeo@mail.com", "22568484-7",
+		insertarProfesor("Amadeo", "Navarrete", 700.25, "San Ildefonso", "2356-7323", "amadeo@mail.com", "22568484-7",
 				true);
 		
 		insertarHorario(LocalTime.of(20, 0) , LocalTime.of(22, 0), Arrays.asList("MARTES","MIERCOLES"));

@@ -13,8 +13,9 @@
 					<div class="titulo-tabla  card-header  justify-content-between">
 						<div class="d-flex align-items-baseline">
 							<h3 th:text="${titulo}" class="text-center d-inline-block me-4"></h3>
-							<a href="" class="btn btn-outline-secondary fw-bold">
-							<i class="bi bi-plus-circle"></i> Nuevo</a>
+							<a th:href="@{/alumno/form}" class="btn btn-outline-secondary fw-bold"> <i
+								class="bi bi-plus-circle"></i> Nuevo
+							</a>
 						</div>
 						<div>
 							<a th:href="@{'/listar'(format=json)}"
@@ -42,15 +43,15 @@
 							</thead>
 							<tbody>
 								<tr th:each="alumno: ${alumnos}">
-									<td data-cell="id"><a th:text="${alumno.id}"
+									<td th:data-cell="ID"><a th:text="${alumno.id}"
 										class="btn btn-primary btn-xs"></a></td>
-									<td data-cell="nombre" th:text="${alumno.nombre}"></td>
-									<td data-cell="Apellido" th:text="${alumno.apellido}"></td>
-									<td data-cell="email" th:text="${alumno.email}"></td>
-									<td data-cell="DUI" th:text="${alumno.DUI}"></td>
-									<td data-cell="Fecha nacimiento"
+									<td th:data-cell="#{text.nombre}" th:text="${alumno.nombre}"></td>
+									<td th:data-cell="#{text.apellido}" th:text="${alumno.apellido}"></td>
+									<td th:data-cell="#{text.email}" th:text="${alumno.email}"></td>
+									<td th:data-cell="#{text.dui}" th:text="${alumno.DUI}"></td>
+									<td th:data-cell="#{text.fecha_nacimiento}"
 										th:text="${alumno.fechaNacimiento}"></td>
-									<td data-cell="Fecha ingreso" th:text="${alumno.fechaIngreso}"></td>
+									<td th:data-cell="#{text.fecha_ingreso}" th:text="${alumno.fechaIngreso}"></td>
 								</tr>
 							</tbody>
 						</table>
@@ -62,6 +63,6 @@
 		</div>
 	</main>
 	<footer th:replace="layouts/layout :: footer"></footer>
-	
+
 </body>
 </html>

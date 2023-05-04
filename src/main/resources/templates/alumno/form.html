@@ -1,10 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
+<head th:replace="layouts/layout :: head">
+  <meta charset="UTF-8" />
+  <title th:text="${titulo}"></title>
+</head>
+
+<body>
+  <header th:replace="layouts/layout :: header "></header>
+  <main class="my-2 capa-formulario">
+    <div class="formulario bg-light">
+      <h2 th:text="${titulo}" class="text-center py-2"></h2>
+
+      <form th:action="@{/alumno/save}" th:object="${alumno}" method="post">
+        <input type="hidden" id="id" name="id" th:value="${alumno.id}" />
+
+        <div class="form-group my-1">
+          <label for="nombre" th:text="#{text.nombre}"></label>
+          <input type="text" class="form-control" id="nombre" name="nombre" th:value="${alumno.nombre}" />
+          <p class="form-text text-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></p>
+        </div>
+        
+        <div class="form-group my-1">
+          <label for="apellido" th:text="#{text.apellido}"></label>
+          <input type="text" class="form-control" id="apellido" name="apellido" th:value="${alumno.apellido}" />
+          <p class="form-text text-danger" th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}"></p>
+        </div>
+        
+        
+        <div class="form-group my-1">
+          <label for="direccion" th:text="#{text.direccion}"></label>
+          <input type="text" class="form-control" id="direccion" name="direccion" th:value="${alumno.direccion}" />
+          <p class="form-text text-danger" th:if="${#fields.hasErrors('direccion')}" th:errors="*{direccion}"></p>
+        </div>
+        
+        
+         <div class="form-group my-1">
+          <label for="telefono" th:text="#{text.telefono}"></label>
+          <input type="text" class="form-control" id="telefono" name="telefono" th:value="${alumno.telefono}" placeholder="####-####" />
+          <p class="form-text text-danger" th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}"></p>
+        </div>
+
+        <div class="my-3 text-center">
+          <button type="submit" class="btn btn-primary btn-lg">
+            <i class="bi bi-box-arrow-down"></i>
+            <span th:text="#{btn.save}">Guardar</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <footer th:replace="layouts/layout :: footer"></footer>
 </body>
+
 </html>

@@ -38,11 +38,11 @@
 							</thead>
 							<tbody>
 								<tr th:each="materia: ${materias}">
-									<td data-cell="id"><a th:text="${materia.id}"
+									<td th:data-cell="ID"><a th:text="${materia.id}"
 										class="btn btn-primary btn-xs"></a></td>
-									<td data-cell="" th:text="${materia.nombre}"></td>
-									<td data-cell="estado" th:text="${materia.estado}? 'Activa' : 'Desactivada'"></td>
-									<td data-cell="profesor" th:text="${materia.profesor.nombre} + ' ' + ${materia.profesor.apellido} "></td>
+									<td th:data-cell="#{text.nombre}" th:text="${materia.nombre}"></td>
+									<td th:data-cell="#{text.estado}" th:text="${materia.estado}? 'Activa' : 'Desactivada'"></td>
+									<td th:data-cell="#{text.materia.profesor}" th:text="${materia.profesor.nombre} + ' ' + ${materia.profesor.apellido} "></td>
 
 								</tr>
 							</tbody>
