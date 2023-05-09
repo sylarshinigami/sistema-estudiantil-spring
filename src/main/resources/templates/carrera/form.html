@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head th:replace="~{layouts/layout :: head}">
+  <meta charset="UTF-8" />
+  <title th:text="${titulo}"></title>
+</head>
+
+<body>
+  <header th:replace="~{layouts/layout :: header}"></header>
+  <main class="my-2 capa-formulario">
+    <div class="formulario bg-light">
+      <h2 th:text="${titulo}" class="text-center py-2"></h2>
+
+      <form th:action="@{/carrera/save}" th:object="${carrera}" method="post">
+        <input type="hidden" id="id" name="id" th:value="${carrera.id}" />
+
+        <div class="form-group my-1">
+          <label for="nombre" th:text="#{text.nombre}"></label>
+          <input type="text" class="form-control" id="nombre" name="nombre" th:value="${carrera.nombre}" />
+          <p class="form-text text-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></p>
+        </div>
+        
+        
+         <div class="form-group my-1">
+          <label for="fecha_creacion" th:text="#{text.fecha_creacion}"></label>
+          <input type="date" class="form-control" id="fecha_creacion" name="fechaCreacion" th:value="${carrera.fechaCreacion}" />
+          <p class="form-text text-danger" th:if="${#fields.hasErrors('fechaCreacion')}" th:errors="*{fechaCreacion}"></p>
+        </div>
+        
+         <div class="form-group my-1">
+          <label for="codigo" th:text="#{text.codigo}"></label>
+          <input type="text" class="form-control" id="codigo" name="codigo" th:value="${carrera.codigo}" placeholder="AA-0000"/>
+          <p class="form-text text-danger" th:if="${#fields.hasErrors('codigo')}" th:errors="*{codigo}"></p>
+        </div>
+        
+        
+        
+        
+        <div class="my-3 text-center">
+          <button type="submit" class="btn btn-primary btn-lg">
+            <i class="bi bi-box-arrow-down"></i>
+            <span th:text="#{btn.save}">Guardar</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <footer th:replace="~{layouts/layout :: footer}"></footer>
+</body>
+
+</html>

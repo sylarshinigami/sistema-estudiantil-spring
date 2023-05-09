@@ -3,18 +3,24 @@
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head th:replace="layouts/layout :: head">
 
-  </head>
-  <body>
-  <header th:replace="layouts/layout :: header "></header>
+</head>
+<body>
+<header th:replace="(~{layouts/layout :: header})"></header>
 
 
-    <main>
-      <a th:href="@{/carrera/form}">Ingresar Carrera</a>
-      <a th:href="@{/materia/form}">Ingresar Materia</a>
-      <a th:href="@{/profesor/form}">Ingresar profesor</a>
-      <a th:href="@{/alumno/form}">Ingresar Alumno</a>
-    </main>
+<main>
+    <div id="capa-inicio" class="d-flex flex-column m-auto w-50 w-md-75">
+        <a th:href="@{/carrera/form}" class="btn btn-secondary p-4 fs-2 my-4"><i
+                class="bi bi-people-fill"></i> Ingresar Carrera</a> <a
+            th:href="@{/materia/form}" class="btn btn-secondary p-4 fs-2  my-4"><i
+            class="bi bi-journal-text"></i> Ingresar Materia</a> <a
+            th:href="@{/profesor/form}" class="btn btn-secondary p-4 fs-2  my-4"><i
+            class="bi bi-person-vcard-fill"></i> Ingresar profesor</a> <a
+            th:href="@{/alumno/form}" class="btn btn-secondary p-4 fs-2  my-4"><i
+            class="bi bi-person-bounding-box"></i>Ingresar Alumno</a>
+    </div>
+</main>
 
-  <footer th:replace="layouts/layout :: footer "></footer>
-  </body>
+<footer th:replace="~{layouts/layout :: footer}"></footer>
+</body>
 </html>

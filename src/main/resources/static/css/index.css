@@ -40,7 +40,7 @@ main {
 	display: flex;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 950px) {
 	.titulo-tabla {
 		display: block !important;
 	}
@@ -82,5 +82,9 @@ main {
 	}
 	footer h2, span.fs-2 {
 		font-size: 1rem !important;
+	}
+	
+	#capa-inicio{
+	 width: 90% !important;
 	}
 }

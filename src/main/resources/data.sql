@@ -1,7 +1,7 @@
-insert into carreras(nombre, estado, fecha_creacion, codigo) values ( 'Literatura Espacial', true, NOW(), 'LE2023')
-insert into carreras(nombre, estado, fecha_creacion, codigo) values ( 'Ingenieria de Sistemas Informaticos', true, NOW(), 'IS2023')
-insert into carreras(nombre, estado, fecha_creacion, codigo) values ( 'Licenciatura en Enfermeria', true, NOW(), 'LE2023')
-insert into carreras(nombre, estado, fecha_creacion, codigo) values ( 'Ingenieria Civil', true, NOW(), 'IC2023')
+insert into carreras(nombre, estado, fecha_creacion, codigo) values ( 'Literatura Espacial', true, NOW(), 'LI-2023')
+insert into carreras(nombre, estado, fecha_creacion, codigo) values ( 'Ingenieria de Sistemas Informaticos', true, NOW(), 'II-2023')
+insert into carreras(nombre, estado, fecha_creacion, codigo) values ( 'Licenciatura en Enfermeria', true, NOW(), 'LE-2023')
+insert into carreras(nombre, estado, fecha_creacion, codigo) values ( 'Ingenieria Civil', true, NOW(), 'IC-2023')
 
 
 

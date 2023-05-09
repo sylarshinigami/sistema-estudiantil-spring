@@ -30,7 +30,7 @@ public class Prueba {
 		en.setNombre("Ronald");
 		en.setApellido("Aguilar");
 		en.setDireccion("San esteban Catarina");
-		en.setDUI("00278484*6");
+		en.setDui("00278484*6");
 		en.setEmail("ronald@mail.com");
 //		en.setEstado(1);
 		en.setEstudios("Universidad");
@@ -48,7 +48,7 @@ public class Prueba {
 		en.setNombre("Ronald");
 		en.setApellido("Aguilar");
 		en.setDireccion("San esteban Catarina");
-		en.setDUI("00278484*8");
+		en.setDui("00278484*8");
 		en.setEmail("ronaldarquimides@mail.com");
 //		en.setEstado(1);
 		en.setEstudios("Universidad");

@@ -12,44 +12,44 @@
     <div class="formulario bg-light">
       <h2 th:text="${titulo}" class="text-center py-2"></h2>
 
-      <form th:action="@{/alumno/save}" th:object="${alumno}" method="post">
-        <input type="hidden" id="id" name="id" th:value="${alumno.id}" />
+      <form th:action="@{/profesor/save}" th:object="${profesor}" method="post">
+        <input type="hidden" id="id" name="id" th:value="${profesor.id}" />
 
         <div class="form-group my-1">
           <label for="nombre" th:text="#{text.nombre}"></label>
-          <input type="text" class="form-control" id="nombre" name="nombre" th:value="${alumno.nombre}" />
+          <input type="text" class="form-control" id="nombre" name="nombre" th:value="${profesor.nombre}" />
           <p class="form-text text-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></p>
         </div>
         
         <div class="form-group my-1">
           <label for="apellido" th:text="#{text.apellido}"></label>
-          <input type="text" class="form-control" id="apellido" name="apellido" th:value="${alumno.apellido}" />
+          <input type="text" class="form-control" id="apellido" name="apellido" th:value="${profesor.apellido}" />
           <p class="form-text text-danger" th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}"></p>
         </div>
         
         
         <div class="form-group my-1">
           <label for="direccion" th:text="#{text.direccion}"></label>
-          <input type="text" class="form-control" id="direccion" name="direccion" th:value="${alumno.direccion}" />
+          <input type="text" class="form-control" id="direccion" name="direccion" th:value="${profesor.direccion}" />
           <p class="form-text text-danger" th:if="${#fields.hasErrors('direccion')}" th:errors="*{direccion}"></p>
         </div>
         
         
          <div class="form-group my-1">
           <label for="telefono" th:text="#{text.telefono}"></label>
-          <input type="text" class="form-control" id="telefono" name="telefono" th:value="${alumno.telefono}" placeholder="####-####" />
+          <input type="text" class="form-control" id="telefono" name="telefono" th:value="${profesor.telefono}" placeholder="####-####" />
           <p class="form-text text-danger" th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}"></p>
         </div>
         
           <div class="form-group my-1">
           <label for="email" th:text="#{text.email}"></label>
-          <input type="email" class="form-control" id="email" name="email" th:value="${alumno.email}" />
+          <input type="email" class="form-control" id="email" name="email" th:value="${profesor.email}" />
           <p class="form-text text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
         </div>
         
           <div class="form-group my-1">
           <label for="DUI" th:text="#{text.dui}"></label>
-          <input type="text" class="form-control" id="dui" name="dui" th:value="${alumno.dui}" placeholder="########-#" />
+          <input type="text" class="form-control" id="dui" name="dui" th:value="${profesor.dui}" placeholder="########-#" />
           <p class="form-text text-danger" th:if="${#fields.hasErrors('dui')}" th:errors="*{dui}"></p>
         </div>
 

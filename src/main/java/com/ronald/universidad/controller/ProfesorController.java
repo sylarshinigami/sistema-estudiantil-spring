@@ -19,8 +19,12 @@ public class ProfesorController {
 	@Autowired
 	private ProfesorRepository profesorRepository;
 	
+
+	
 	@GetMapping("/form")
-	public String form() {
+	public String form(Model model) {
+		model.addAttribute("titulo", "Ingreso de Profesor");
+		model.addAttribute("profesor", new Profesor());
 		return "profesor/form";
 	}
 	

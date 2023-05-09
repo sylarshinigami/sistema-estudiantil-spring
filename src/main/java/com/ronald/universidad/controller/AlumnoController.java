@@ -39,7 +39,7 @@ public class AlumnoController {
 
 	@GetMapping("/form")
 	public String form(Model model) {
-		model.addAttribute("titulo", "Ingreso de Estudiantes");
+		model.addAttribute("titulo", "Ingreso de Estudiante");
 		model.addAttribute("alumno", new Alumno());
 		return "alumno/form";
 	}

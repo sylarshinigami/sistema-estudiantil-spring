@@ -15,11 +15,11 @@ import com.ronald.universidad.entity.Carrera;
 import com.ronald.universidad.entity.Horario;
 import com.ronald.universidad.entity.Materia;
 import com.ronald.universidad.entity.Profesor;
-import com.ronald.universidad.repository.AlumnoMateriaRepository;
 import com.ronald.universidad.repository.AlumnoRepository;
 import com.ronald.universidad.repository.CarreraRepository;
 import com.ronald.universidad.repository.HorarioRepository;
 import com.ronald.universidad.repository.MateriaRepository;
+import com.ronald.universidad.repository.NotaRepository;
 import com.ronald.universidad.repository.ProfesorRepository;
 
 @Service
@@ -42,7 +42,7 @@ public class InserccionDatos {
 	private MateriaRepository materiaRepository;
 	
 	@Autowired
-	private AlumnoMateriaRepository alumnoMateriaRepository;
+	private NotaRepository notaRepository;
 
 	public void inicializar() {
 		insertarAlumno("Ronald", "Aguilar", new Date(), new Date(), "colonia nuevo calvario", "7751-2313",
@@ -51,9 +51,9 @@ public class InserccionDatos {
 		insertarAlumno("Arquimides", "Navarrete", new Date(), new Date(), "San Esteban Catarina", "2362-7323",
 				"arquimides@mail.com", "00278484-7", true);
 
-		insertarCarrera("Ingenieria de Sistemas informaticos", "ACTIVA", new Date(), "IS2023");
-		insertarCarrera("Profesorado en Matematicas", "ACTIVA", new Date(), "PM2023");
-		insertarCarrera("Licenciatura en Sociales", "ACTIVA", new Date(), "LS2023");
+		insertarCarrera("Ingenieria de Sistemas informaticos", true, new Date(), "IS-2023");
+		insertarCarrera("Profesorado en Matematicas", true, new Date(), "PM-2023");
+		insertarCarrera("Licenciatura en Sociales", true, new Date(), "LS-2023");
 
 		insertarProfesor("Jose", "Navarrete", 500.25, "San Vicente", "2393-7323", "jose@mail.com", "22278484-7",
 				true);
@@ -73,7 +73,7 @@ public class InserccionDatos {
 	}
 
 	public void insertarAlumno(String nombre, String apellido, Date fechaNacimiento, Date fechaIngreso,
-			String direccion, String telefono, String email, String DUI, boolean estado) {
+			String direccion, String telefono, String email, String dui, boolean estado) {
 
 		Alumno alumno = new Alumno();
 		alumno.setNombre(nombre);
@@ -83,13 +83,13 @@ public class InserccionDatos {
 		alumno.setDireccion(direccion);
 		alumno.setTelefono(telefono);
 		alumno.setEmail(email);
-		alumno.setDUI(DUI);
+		alumno.setDui(dui);
 		alumno.setEstado(estado);
 
 		alumnoRepository.save(alumno);
 	}
 
-	public void insertarCarrera(String nombre, String estado, Date fechaCreacion, String codigo) {
+	public void insertarCarrera(String nombre, boolean estado, Date fechaCreacion, String codigo) {
 		Carrera carrera = new Carrera();
 		carrera.setNombre(nombre);
 		carrera.setEstado(estado);
@@ -100,7 +100,7 @@ public class InserccionDatos {
 	}
 
 	public void insertarProfesor(String nombre, String apellido, Double salario, String direccion, String telefono,
-			String email, String DUI, boolean estado) {
+			String email, String dui, boolean estado) {
 		Profesor profesor = new Profesor();
 
 		profesor.setNombre(nombre);
@@ -109,7 +109,7 @@ public class InserccionDatos {
 		profesor.setDireccion(direccion);
 		profesor.setTelefono(telefono);
 		profesor.setEmail(email);
-		profesor.setDUI(DUI);
+		profesor.setDui(dui);
 		profesor.setEstado(estado);
 
 		profesorRepository.save(profesor);
@@ -157,7 +157,7 @@ public class InserccionDatos {
 		notas.setNotaFinal(notaFinal);
 		
 		
-		alumnoMateriaRepository.save(notas);
+		notaRepository.save(notas);
 		
 		
 	}

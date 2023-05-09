@@ -50,7 +50,8 @@ public class Persona {
 	
 	@Length(max = 12)
 	@Column( unique = true)
-	private String DUI;
+	@Pattern(regexp = "[0-9]{8}-[0-9]{1}", message = "No es un formato valido de DUI ########-#")
+	private String dui;
 	
 	private boolean estado;
 

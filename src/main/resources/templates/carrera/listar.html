@@ -13,8 +13,9 @@
 					<div class="card-header d-flex justify-content-between">
 						<div class="d-flex align-items-baseline">
 							<h3 th:text="${titulo}" class="text-center d-inline-block me-4"></h3>
-							<a href="" class="btn btn-outline-secondary fw-bold"><i
-								class="bi bi-plus-circle"></i> Nuevo</a>
+							<a th:href="@{/carrera/form}"
+								class="btn btn-outline-secondary fw-bold"><i
+								class="bi bi-plus-circle"></i> Nueva</a>
 						</div>
 						<div class="botones-formato">
 							<a th:href="@{'/listar'(format=json)}"
@@ -44,7 +45,7 @@
 									<td th:data-cell="#{text.nombre}" th:text="${carrera.nombre}"></td>
 									<td th:data-cell="#{text.codigo}" th:text="${carrera.codigo}"></td>
 									<td th:data-cell="#{text.fecha_creacion}"
-										th:text="${carrera.fechaCreacion}"></td>
+										th:text="${#dates.format(carrera.fechaCreacion, 'dd-MMMM-yyyy')}"></td>
 								</tr>
 							</tbody>
 						</table>
